@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 135 90" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 140 90" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <style>
         .ink {
@@ -11,23 +11,23 @@
         }
 
         .blue-2 {
-          animation: move-blue-2 0.5s forwards 0.5s;
+          animation: move-blue-2 1s forwards 1s;
         }
 
         .blue-3 {
-          animation: move-blue-3 0.5s forwards 0.5s;
+          animation: move-blue-3 1s forwards 1s;
         }
 
         .ink-1 {
-          animation: move-ink-1 0.5s forwards 0.5s;
+          animation: move-ink-1 1s forwards 1s;
         }
 
         .ink-2 {
-          animation: move-ink-2 0.5s forwards 0.5s;
+          animation: move-ink-2 1s forwards 1s;
         }
 
         .ink-3 {
-          animation: move-ink-3 0.5s forwards 0.5s;
+          animation: move-ink-3 1s forwards 1s;
         }
 
         @keyframes move-blue-2 {
@@ -77,7 +77,7 @@
 
         text {
           opacity: 0;
-          animation: fadein 0.5s forwards 1s;
+          animation: fadein 1.2s forwards 1.2s;
           <!-- fill: white; -->
         }
 
@@ -95,12 +95,12 @@
     <g>
       <title>TopSoft</title>
 
-      <text x="25" y="20" font-size="9px">Innovation</text>
-      <text x="25" y="40" font-size="9px">Quality</text>
-      <text x="25" y="62" font-size="9px">Reliability</text>
-      <text x="103" y="20" font-size="9px">Design</text>
-      <text x="103" y="40" font-size="9px">Build</text>
-      <text x="103" y="62" font-size="9px">Manage</text>
+      <text x="25" y="24" font-size="9px">Innovation</text>
+      <text x="25" y="44" font-size="9px">Quality</text>
+      <text x="25" y="64" font-size="9px">Reliability</text>
+      <text x="103" y="24" font-size="9px">Design</text>
+      <text x="103" y="44" font-size="9px">Build</text>
+      <text x="103" y="64" font-size="9px">Manage</text>
 
       <path
         class="blue blue-1"

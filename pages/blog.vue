@@ -20,7 +20,7 @@
               :to="{ name: 'posts-slug', params: { slug: article.slug } }"
             >
               <div class="flex flex-col h-full">
-                <h2 class="text-2xl font-bold">
+                <h2 class="text-xl font-bold">
                   {{ article.title }}
                 </h2>
                 <p

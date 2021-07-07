@@ -1,16 +1,16 @@
 <template>
   <div>
-    <Header />
     <Nuxt />
   </div>
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 html,
 body {
   height: 100%;
-  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: Montserrat, Arial, sans-serif;
 }
 
 body {

@@ -1,12 +1,33 @@
 <template>
   <div>
-    <section id="main" class="h-screen flex flex-row items-center bg-tyellow">
-      <LogoDisassemble class="mx-auto w-10/12 sm:w-6/12"></LogoDisassemble>
+    <Header />
+
+    <section
+      id="main"
+      class="h-screen flex flex-row items-center px-5 sm:px-40"
+    >
+      <div class="grid grid-cols-3 w-full h-50vh">
+        <div class="col-span-2 pt-8 rounded-lg mr-2 text-white">
+          <div class="text-6xl">TopSoft</div>
+          <div class="text-2xl">full range of development services</div>
+        </div>
+        <div class="bg-tyellow px-6 rounded-lg shadow-2xl flex items-center">
+          <LogoDisassemble class="mx-auto"></LogoDisassemble>
+        </div>
+      </div>
     </section>
+
+    <section data-aos="fade-up" data-aos-delay="100">
+      <WhoWeAre />
+    </section>
+
     <section>
-      <!-- data-aos="fade-up" data-aos-delay="100" -->
+      <Services />
+    </section>
+
+    <section>
       <div class="h-full">
-        <h3 class="sm:pl-20 mt-10 text-4xl">Latest Projects</h3>
+        <h3 class="text-4xl text-center py-5">CLIENT SUCCESS</h3>
         <div class="flex flex-col">
           <div v-for="project of projects" :key="project.slug">
             <div
@@ -18,7 +39,17 @@
                 <img
                   src="https://images.unsplash.com/photo-1615130378909-21b80a796749?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixlib=rb-1.2.1&q=80&w=600"
                   :alt="project.img"
-                  class="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 h-full w-full object-cover"
+                  class="
+                    transition
+                    duration-500
+                    ease-in-out
+                    transform
+                    hover:-translate-y-1
+                    hover:scale-110
+                    h-full
+                    w-full
+                    object-cover
+                  "
                 />
               </div>
               <div
@@ -36,7 +67,12 @@
                       {{ project.client }}
                     </h2>
                     <p
-                      class="mt-5 overflow-ellipsis overflow-hidden font-normal text-3xl"
+                      class="
+                        mt-5
+                        overflow-ellipsis overflow-hidden
+                        font-normal
+                        text-3xl
+                      "
                       style="height: 45%"
                     >
                       {{ project.description.substring(0, 100) }}
@@ -85,32 +121,7 @@
         </div>
       </div>
     </section>
-    <section class="h-screen" style="background: #fff">
-      <div
-        class="flex flex-row items-center justify-between sm:px-20 mt-10 text-4xl"
-      >
-        <h3>Trusted By</h3>
-        <no-ssr>
-          <loading-progress
-            :progress="progress"
-            shape="line"
-            size="200"
-            width="200"
-            height="6"
-          />
-        </no-ssr>
-      </div>
-      <div class="mx-16">
-        <vue-horizontal-list :items="items" :options="options">
-          <template v-slot:default="{ item }">
-            <div class="px-5 py-3 flex flex-col justify-center items-center">
-              <img class="tb-logo" :src="item.logo" alt="" />
-              <h5 class="text-center text-gray-700">{{ item.comapany }}</h5>
-            </div>
-          </template>
-        </vue-horizontal-list>
-      </div>
-    </section>
+
     <!-- <no-ssr>
       <vue-particles
         color="#140957"
@@ -135,7 +146,9 @@
 </template>
 
 <script>
+import WhoWeAre from "~/components/WhoWeAre.vue";
 export default {
+  components: { WhoWeAre },
   updated() {
     document.querySelector(".vhl-navigation")?.remove();
   },
@@ -150,18 +163,18 @@ export default {
       this.progress = parseFloat((this.progress + 0.1).toFixed(2));
     }, 300);
 
-    VANTA.TOPOLOGY({
-      el: "#main",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.0,
-      minWidth: 200.0,
-      scale: 1.0,
-      scaleMobile: 1.0,
-      color: 0xffffff,
-      backgroundColor: 0xffd02f,
-    });
+    // VANTA.TOPOLOGY({
+    //   el: "#main",
+    //   mouseControls: true,
+    //   touchControls: true,
+    //   gyroControls: false,
+    //   minHeight: 200.0,
+    //   minWidth: 200.0,
+    //   scale: 1.0,
+    //   scaleMobile: 1.0,
+    //   color: 0xffffff,
+    //   backgroundColor: 0xffd02f,
+    // });
   },
   data() {
     return {
@@ -181,110 +194,18 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
         },
       ],
-      options: {
-        autoplay: { play: true, repeat: true, speed: 3000 },
-        responsive: [
-          { end: 576, size: 1 },
-          { start: 576, end: 768, size: 2 },
-          { start: 768, end: 992, size: 3 },
-          { size: 5 },
-        ],
-        list: {
-          // 1200 because @media (min-width: 1200px) and therefore I want to switch to windowed mode
-          windowed: 1200,
-
-          // Because: #app {padding: 80px 24px;}
-          padding: 24,
-        },
-      },
-      items: [
-        {
-          comapany: "ZCMC",
-          logo:
-            "https://ameriabank.am/IR/images/default-source/default-album/zcmc_logob1f318b8d4e664d68a11ff0000cecace.jpg?sfvrsn=4",
-        },
-        {
-          comapany: "IDBank",
-          logo:
-            "https://asue.am/images/1559729173/02a3067aad7848c7b4f64a7c.jpg",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-        {
-          comapany: "Item 0",
-          logo:
-            "http://assets.stickpng.com/thumbs/58482acecef1014c0b5e4a1e.png",
-        },
-      ],
-      progress: 0.1,
     };
   },
 };
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
-
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-
-.vue-progress-path .progress {
-  stroke: black;
+.bg-tops-blue {
+  background-color: #1ec2f2;
 }
 
-.tb-logo {
-  filter: grayscale(80%);
-  width: 40%;
-}
-
-.tb-logo:hover {
-  filter: grayscale(0%);
+.bg-tops-green {
+  background-color: #024442;
 }
 
 .h-50vh {
@@ -296,6 +217,17 @@ export default {
 }
 
 .bg-tyellow {
-  background-color: #ffd02f;
+  background-color: #faca30;
+}
+
+section {
+  padding-top: 5rem;
+}
+
+#main {
+  background: url("~assets/main.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-size: cover;
 }
 </style>
